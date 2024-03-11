@@ -60,7 +60,7 @@ class ControllerMember extends Controller
         //
         $memberships = DB::table('memberships')->get();
         $member = DB::table('memberships')->join('members','members.membership_id','=','memberships.id')->select('memberships.*','members.*')->where('members.id','=',$id)->get();
-        return view('layouts.editmember',compact('member','memberships'));
+        return view('layouts.memberedit',compact('member','memberships'));
     }
 
     /**

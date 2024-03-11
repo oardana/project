@@ -73,6 +73,19 @@
                             <a href="/payment">
                                 <i class="fas fa-dollar"></i>Master Payment</a>
                         </li>
+                        <li class="{{Request::is('membership')? 'active':'' }}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':'' }}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':'' }}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':'' }}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>
@@ -101,6 +114,18 @@
                         <li class="{{Request::is('payment') ? 'active':''}}">
                             <a href="/payment" >
                                 <i class="fas fa-dollar"></i>Master Payment</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':''}}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':''}}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master VehicleType</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':''}}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master Hourlyrate</a>
+                        </li>
+                        <li class="{{Request::is('membership')? 'active':''}}">
+                            <a href="/membership"><i class="fa fa-user"></i>Master ParkingData</a>
                         </li>
                     </ul>
                 </nav>
