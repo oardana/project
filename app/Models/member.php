@@ -18,4 +18,8 @@ class member extends Model
         'gender',
         'date_of_birth'
     ];
+
+    public function membership(){
+        return $this->belongsTo(membership::class);
+    }
 }

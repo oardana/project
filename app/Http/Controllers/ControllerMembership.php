@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\membership;
+use Illuminate\Pagination\Paginator;
+
 
 class ControllerMembership extends Controller
 {
@@ -12,6 +16,8 @@ class ControllerMembership extends Controller
     public function index()
     {
         //
+       $membership = membership::all();
+       return view('layouts.membership',compact('membership'));
     }
 
     /**
@@ -20,6 +26,7 @@ class ControllerMembership extends Controller
     public function create()
     {
         //
+        return view('layouts.membershipadd');
     }
 
     /**
@@ -28,22 +35,25 @@ class ControllerMembership extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name_member' => 'required'
+        ]);
+
+        membership::create($request->all());
+
+        return redirect('/membership');
+        
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(membership $membership)
     {
-        //
+        return view('layouts.membershipedit',compact('membership'));
     }
 
     /**
@@ -52,6 +62,16 @@ class ControllerMembership extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'name_member'=>'required'
+        ]);
+        
+
+        membership::where('id',$id)->update([
+            'name_member' => $request->name_member
+        ]);
+        return redirect('/membership');
+        
     }
 
     /**
@@ -60,5 +80,7 @@ class ControllerMembership extends Controller
     public function destroy(string $id)
     {
         //
+        membership::where('id',$id)->delete();
+        return redirect('/membership');
     }
 }

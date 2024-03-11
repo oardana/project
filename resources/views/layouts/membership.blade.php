@@ -3,13 +3,13 @@
     <div class="section__content section__content--p30">
         <div class="container-fluid"> 
             
-            <h1 class="text-center mb-5"> Page Member</h1>
-            <a href="/member/create">
+            <h1 class="text-center mb-5">Membership</h1>
+            <a href="/membership/create">
                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                 <i class="zmdi zmdi-plus"></i>add item</button>
             </a>
 
-            @if ($members->isEmpty())
+            @if ($membership->isEmpty())
                 <h1 class="text-center mt-5">Data Not Found....</h1>
             @else
             <div class="table-data__tool">
@@ -19,37 +19,26 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>Membership Type</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Address</th>
-                                    <th>Date Of Birth</th>
-                                    <th>Gender</th>
-                                    <th>Action</th>
+                                    <th>Member Name</th>
+                                    <th>Created At</th>
+                                    <th>Updated At</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($members as $item)
+                                @foreach ($membership as $item)
                                 <tr class="tr-shadow">
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->membership->name_member}}</td>
+                                    <td>{{$item->name_member}}</td>
+                                    <td>{{$item->created_at}}</td>
+                                    <td>{{$item->updated_at}}</td>
                                     <td>
-                                    <span class="block-email">{{$item->email}}</span>
-                                    </td>
-                                    <td>{{$item->phone_number}}</td>
-                                    <td>{{$item->address}}</td>
-                                    <td>{{$item->date_of_birth}}</td>
-                                    <td>{{$item->gender}}</td>
-                                    <td>
-                                        <div class="table-data-feature">
-                                            <a href="/member/{{$item->id}}">
+                                        <div class="table-data-feature"> 
+                                            <a href="/membership/{{$item->id}}/edit">
                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                     <i class="zmdi zmdi-edit"></i>
                                                 </button>
                                             </a>
-                                                <form action="/member/{{$item->id}}" method="POST">
+                                                <form action="/membership/{{$item->id}}" method="POST">
                                                     @method('delete')
                                                     @csrf
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
@@ -67,7 +56,6 @@
                 </div>
             </div> 
             @endif
-            {{$members->links()}}   
         </div>
         
     </div>                                  

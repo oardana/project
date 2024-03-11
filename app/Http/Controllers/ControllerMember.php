@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
+use App\Models\membership;
 
 class ControllerMember extends Controller
 {
@@ -19,7 +20,8 @@ class ControllerMember extends Controller
     {
         //
         $keywords = $request->search;
-        $members = DB::table('memberships')->join('members','members.membership_id','=','memberships.id')->select('memberships.*','members.*')->where('members.name','LIKE',"%$keywords%")->paginate(4);
+        // $members = DB::table('memberships')->join('members','members.membership_id','=','memberships.id')->select('memberships.*','members.*')->where('members.name','LIKE',"%$keywords%")->paginate(4);
+        $members = member::where('members.name','LIKE',"%$keywords%")->paginate(4);
         return view('layouts.member',compact('members'));
     }
 
@@ -43,7 +45,7 @@ class ControllerMember extends Controller
             'name' => 'required',
             'email' => 'required',
             'address'=> 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|min:12',
             'date_of_birth' => 'required',
             'gender' => 'required'
 
@@ -55,11 +57,10 @@ class ControllerMember extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(member $member)
     {
         //
-        $memberships = DB::table('memberships')->get();
-        $member = DB::table('memberships')->join('members','members.membership_id','=','memberships.id')->select('memberships.*','members.*')->where('members.id','=',$id)->get();
+        $memberships = membership::all();
         return view('layouts.memberedit',compact('member','memberships'));
     }
 
@@ -69,6 +70,16 @@ class ControllerMember extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address'=> 'required',
+            'phone_number' => 'required|min:12',
+            'date_of_birth' => 'required',
+            'gender' => 'required'
+
+        ]);
+
         member::where('id',$id)->update([
             'name'=> $request->name,
             'membership_id'=> $request->membership_id,
@@ -87,7 +98,7 @@ class ControllerMember extends Controller
     public function destroy(string $id)
     {
         //
-        $members = DB::table('members')->join('memberships','members.membership_id','=','memberships.id')->where('members.id',$id)->delete();
+        $members = member::where('id',$id)->delete();
         return redirect('/member');
     }
 }

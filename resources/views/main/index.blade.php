@@ -118,14 +118,14 @@
                         <li class="{{Request::is('membership')? 'active':''}}">
                             <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':''}}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master VehicleType</a>
+                        <li class="{{Request::is('vehicletype')? 'active':''}}">
+                            <a href="/vehicletype"><i class="fa fa-user"></i>Master VehicleType</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':''}}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master Hourlyrate</a>
+                        <li class="{{Request::is('hourlyrate')? 'active':''}}">
+                            <a href="/hourlyrate"><i class="fa fa-user"></i>Master Hourlyrate</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':''}}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master ParkingData</a>
+                        <li class="{{Request::is('parkingdata')? 'active':''}}">
+                            <a href="/parkingdata"><i class="fa fa-user"></i>Master ParkingData</a>
                         </li>
                     </ul>
                 </nav>
