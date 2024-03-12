@@ -20,8 +20,7 @@ class ControllerMember extends Controller
     {
         //
         $keywords = $request->search;
-        // $members = DB::table('memberships')->join('members','members.membership_id','=','memberships.id')->select('memberships.*','members.*')->where('members.name','LIKE',"%$keywords%")->paginate(4);
-        $members = member::where('members.name','LIKE',"%$keywords%")->paginate(4);
+        $members = member::where('name','LIKE',"%$keywords%")->paginate(4);
         return view('layouts.member',compact('members'));
     }
 
