@@ -83,7 +83,7 @@ class ControllerVehicleType extends Controller
         $parent = Vehicletype::findOrFail($id);
         if($parent->vehicle->isEmpty()){
             $parent->delete();
-            return back()->with('succes','deleted Succesfully');
+            return back()->with('success','deleted Succesfully');
         }else{
             return back()->with('error','Data Failed Because constraint Page Vehicle');
         }

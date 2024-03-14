@@ -8,7 +8,8 @@ use App\Http\Controllers\ControllerVehicle;
 use App\Http\Controllers\ControllerVehicleType;
 use App\Http\Controllers\ControllerPayment;
 use App\Http\Controllers\ControllerMembership;
-
+use App\Http\Controllers\ControllerHourlyrate;
+use App\Http\Controllers\ControllerParkingdata;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,6 @@ Route::resource('vehicle', ControllerVehicle::class)->middleware('vehicle');
 Route::resource('payment', ControllerPayment::class)->middleware('payment');
 Route::resource('membership', ControllerMembership::class);
 Route::resource('vehicletype', ControllerVehicleType::class);
-
+Route::resource('hourlyrate', ControllerHourlyrate::class);
+Route::resource('parkingdata', ControllerParkingdata::class);
 

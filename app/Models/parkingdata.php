@@ -12,7 +12,7 @@ class parkingdata extends Model
         'license_plate',
         'vehicle_id',
         'employee_id',
-        'hourly_rates_id',
+        'hourlyrate_id',
         'date_in',
         'date_out',
         'amount_to_pay'
@@ -20,5 +20,9 @@ class parkingdata extends Model
 
     public function vehicle(){
         return $this->belongsTo(vehicle::class);
+    }
+
+    public function hourlyrate(){
+        return $this->belongsTo(hourlyrate::class);
     }
 }

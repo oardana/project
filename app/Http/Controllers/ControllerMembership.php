@@ -64,8 +64,6 @@ class ControllerMembership extends Controller
         $request->validate([
             'name_member'=>'required'
         ]);
-        
-
         membership::where('id',$id)->update([
             'name_member' => $request->name_member
         ]);
@@ -79,7 +77,13 @@ class ControllerMembership extends Controller
     public function destroy(string $id)
     {
         //
-        membership::where('id',$id)->delete();
+        $parent = membership::findOrFail($id);
+        if($parent->hourlyrate->isEmpty()){
+            $parent->delete();
+            return back()->with('success','Deleted Successfully');
+        }else{
+            return back()->with('error','Data failed Constraint with Hourlyrate');
+        }
         return redirect('/membership');
     }
 }

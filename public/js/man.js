@@ -1693,7 +1693,7 @@
             result =$.map(res,function(obj){
               return{
                 label: obj.license_plate,
-                value:obj.license_plate,
+                value: obj.license_plate,
                 data: obj
               };
             });
@@ -1716,7 +1716,7 @@
             $('#date2').val(result.time_in);
             $('#date_in').val(result.created_at);
             $('#hourlyrate').val(result.value);
-            $('#hourly_rates_id').val(result.hours_id);
+            $('#hourlyrate_id').val(result.hours_id);
           }
           
           let inputStart = document.getElementById('date1').value;

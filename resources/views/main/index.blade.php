@@ -218,7 +218,7 @@
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <!-- Main JS-->
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/man.js')}}"></script>
 
 </body>
 

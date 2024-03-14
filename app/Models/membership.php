@@ -14,4 +14,9 @@ class membership extends Model
     public function member(){
         return $this->hasMany(member::class);
     }
+
+    public function hourlyrate(){
+        return $this->hasMany(Hourlyrate::class);
+
+    }
 }

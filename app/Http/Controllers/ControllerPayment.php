@@ -38,7 +38,7 @@ class ControllerPayment extends Controller
      */
     public function store(Request $request)
     {
-        
+    
         $request->validate([
             'license_plate' => 'required',
             'vehicle_id' => 'required',
@@ -62,7 +62,7 @@ class ControllerPayment extends Controller
             join('members','vehicles.member_id','=','members.id')->
             join('memberships','members.membership_id','=','memberships.id')->
             join('hourlyrates','memberships.id','=','hourlyrates.membership_id')->
-            join('vehicletypes','vehicles.vehicle_type_id','=','vehicletypes.id')->
+            join('vehicletypes','vehicles.vehicletype_id','=','vehicletypes.id')->
             select('vehicles.id','vehicles.license_plate','vehicletypes.name_type','members.name','memberships.name_member as type_member',DB::raw('date(vehicles.created_at) as date_in'),DB::raw('time(vehicles.created_at) as time_in'),'hourlyrates.id as hours_id','hourlyrates.value','vehicles.created_at')->
             where('vehicles.license_plate','LIKE',"$id%")->
             limit(10)->

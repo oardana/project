@@ -65,8 +65,8 @@
                                 </div> 
                                 <div class="form-group">
                                     <label for="">Hourly Rate</label>
-                                    <input type="text" id="hourlyrate" class="form-control" required>
-                                    <input type="hidden" name="hourly_rates_id" id="hourly_rates_id" required>
+                                    <input type="text" id="hourlyrate" name="hourlyrate" class="form-control" required>
+                                    <input type="hidden" name="hourlyrate_id" id="hourlyrate_id" required>
                                 </div>   
                             </div>
                             <div class="card-footer">
