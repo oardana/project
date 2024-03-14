@@ -5,8 +5,11 @@ use App\Http\Controllers\ControllerLogin;
 use App\Http\Controllers\ControllerRegistration;
 use App\Http\Controllers\ControllerMember;
 use App\Http\Controllers\ControllerVehicle;
+use App\Http\Controllers\ControllerVehicleType;
 use App\Http\Controllers\ControllerPayment;
 use App\Http\Controllers\ControllerMembership;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,5 +31,6 @@ Route::get('/',[ControllerLogin::class,'index']);
 Route::resource('vehicle', ControllerVehicle::class)->middleware('vehicle');
 Route::resource('payment', ControllerPayment::class)->middleware('payment');
 Route::resource('membership', ControllerMembership::class);
+Route::resource('vehicletype', ControllerVehicleType::class);
 
 

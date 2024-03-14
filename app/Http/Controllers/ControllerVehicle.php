@@ -24,7 +24,7 @@ class ControllerVehicle extends Controller
 
         $vehicles = DB::table('vehicles')
         ->join('members','vehicles.member_id','=','members.id')
-        ->join('vehicletypes','vehicles.vehicle_type_id','=','vehicletypes.id')
+        ->join('vehicletypes','vehicles.vehicletype_id','=','vehicletypes.id')
         ->select('vehicles.id','vehicles.license_plate','members.name','vehicletypes.name_type','vehicles.notes','vehicles.created_at')
         ->where('members.name','LIKE',"%$keyword%")
         ->get();
@@ -52,7 +52,7 @@ class ControllerVehicle extends Controller
         $request->validate([
             'notes'=> 'required',
             'member_id' => 'required',
-            'vehicle_type_id' => 'required',
+            'vehicletype_id' => 'required',
             'license_plate' => 'required'
         ]);
         vehicle::create($request->all());
@@ -68,8 +68,8 @@ class ControllerVehicle extends Controller
         //
         $vehicles = DB::table('vehicles')
         ->join('members','vehicles.member_id','=','members.id')
-        ->join('vehicletypes','vehicles.vehicle_type_id','=','vehicletypes.id')
-        ->select('vehicles.id','vehicles.license_plate','members.name','vehicles.member_id','vehicles.vehicle_type_id','vehicletypes.name_type','vehicles.notes')->where('vehicles.id','=',$id)->get();
+        ->join('vehicletypes','vehicles.vehicletype_id','=','vehicletypes.id')
+        ->select('vehicles.id','vehicles.license_plate','members.name','vehicles.member_id','vehicles.vehicletype_id','vehicletypes.name_type','vehicles.notes')->where('vehicles.id','=',$id)->get();
         $nameMember = DB::table('members')->get();
         $vehicleType = DB::table('vehicletypes')->get();
        return view('layouts.vehicleedit',compact('nameMember','vehicleType','vehicles'));
@@ -87,7 +87,7 @@ class ControllerVehicle extends Controller
         vehicle::where('id',$id)->update([
             'license_plate' => $request->license_plate,
             'member_id' =>$request->member_id,
-            'vehicle_type_id'=>$request->vehicle_type_id,
+            'vehicletype_id'=>$request->vehicletype_id,
             'notes'=>$request->notes
         ]);
         return redirect('/vehicle');

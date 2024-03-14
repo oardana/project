@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('membership_id');
             $table->foreign('membership_id')->references('id')->on('memberships');
-            $table->unsignedBigInteger('vehicle_type_id');
-            $table->foreign('vehicle_type_id')->references('id')->on('vehicletypes');
+            $table->unsignedBigInteger('vehicletype_id');
+            $table->foreign('vehicletype_id')->references('id')->on('vehicletypes');
             $table->integer('value');
             $table->timestamps();
         });

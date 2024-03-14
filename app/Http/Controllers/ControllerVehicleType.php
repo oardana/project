@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicletype;
+use App\Models\membership;
 use Illuminate\Http\Request;
 
 class ControllerVehicleType extends Controller
@@ -12,6 +14,8 @@ class ControllerVehicleType extends Controller
     public function index()
     {
         //
+        $vehicletypes = Vehicletype::all();
+        return view('layouts.vehicletype',compact('vehicletypes'));
     }
 
     /**
@@ -20,6 +24,8 @@ class ControllerVehicleType extends Controller
     public function create()
     {
         //
+        
+        return view('layouts.vehicletypeadd');
     }
 
     /**
@@ -28,12 +34,17 @@ class ControllerVehicleType extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name_type' => 'required'
+        ]);
+        Vehicletype::create($request->all());
+        return redirect('/vehicletype');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Vehicletype $vehicletype)
     {
         //
     }
@@ -41,24 +52,40 @@ class ControllerVehicleType extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Vehicletype $vehicletype)
     {
         //
+        return view('layouts.vehicletypeedit',compact('vehicletype'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $vehicletype)
     {
         //
+        Vehicletype::where('id',$id)
+        ->update([
+            'name_type' =>$request->name_type
+        ]);
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(String $id)
     {
         //
+        // Vehicletype::where('id',$vehicletype)->delete();
+        // return back();
+
+        $parent = Vehicletype::findOrFail($id);
+        if($parent->vehicle->isEmpty()){
+            $parent->delete();
+            return back()->with('succes','deleted Succesfully');
+        }else{
+            return back()->with('error','Data Failed Because constraint Page Vehicle');
+        }
     }
 }

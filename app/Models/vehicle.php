@@ -12,11 +12,15 @@ class vehicle extends Model
     protected $fillable =[
         'license_plate',
         'member_id',
-        'vehicle_type_id',
-        'notes',
+        'vehicletype_id',
+        'notes'
     ];
 
     public function parkingdata(){
         return $this->hasMany(parkingdata::class);
+    }
+    
+    public function vehicletype(){
+        return $this->belongsTo(vehicletype::class);
     }
 }

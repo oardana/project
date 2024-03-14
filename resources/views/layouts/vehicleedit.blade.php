@@ -26,9 +26,9 @@
                                 </select>  
                             </div>
                             <div class="form-group">
-                                <label for="vehicle_type_id" class=" form-control-label">Vehicle Type</label>
-                                    <select name="vehicle_type_id" id="select" name="select" class="form-control" >
-                                        <option value="{{$items->vehicle_type_id}}">{{$items->name_type}}</option>
+                                <label for="vehicletype_id" class=" form-control-label">Vehicle Type</label>
+                                    <select name="vehicletype_id" id="select" name="select" class="form-control" >
+                                        <option value="{{$items->vehicletype_id}}">{{$items->name_type}}</option>
                                         @foreach ($vehicleType as $item)
                                             <option value="{{$item->id}}">{{$item->name_type}}</option>
                                         @endforeach

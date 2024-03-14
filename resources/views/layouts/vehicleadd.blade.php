@@ -24,9 +24,9 @@
                                 </select>  
                             </div>
                             <div class="form-group">
-                                <label for="vehicle_type_id" class=" form-control-label">Vehicle Type</label>
+                                <label for="vehicletype_id" class=" form-control-label">Vehicle Type</label>
                                
-                                    <select name="vehicle_type_id" id="select" name="select" class="form-control" >
+                                    <select name="vehicletype_id" id="select" name="select" class="form-control" >
                                         <option value="">Enter Vehicle Type</option>
                                         @foreach ($vehicleType as $item)
                                             <option value="{{$item->id}}">{{$item->name_type}}</option>
