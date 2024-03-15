@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\parkingdata;
 
 class ControllerParkingdata extends Controller
 {
@@ -11,7 +12,8 @@ class ControllerParkingdata extends Controller
      */
     public function index()
     {
-        return view('layouts.parkingdata');
+        $parkingdata = parkingdata::all();
+        return view('layouts.parkingdata',compact('parkingdata'));
     }
 
     /**

@@ -8,24 +8,34 @@
                     <table class="table table-borderless table-striped table-earning">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>License Plate</th>
-                                <th></th>
-                                <th>name</th>
-                                <th class="text-right">price</th>
-                                <th class="text-right">quantity</th>
-                                <th class="text-right">total</th>
-                                <th>adda</th>
+                                <th>Owner</th>
+                                <th>Type Member</th>
+                                <th>Type Vehicle</th>
+                                <th>Value</th>
+                                <th>Date In</th>
+                                <th>Date Out</th>
+                                <th>Total</th>
+                                <th>Employee</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>2018-09-29 05:57</td>
-                                <td>100398</td>
-                                <td>iPhone X 64Gb Grey</td>
-                                <td class="text-right">$999.00</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$999.00</td>
-                                <td>lasda</td>
+                                @foreach ($parkingdata as $item)
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$item->license_plate}}</td>
+                                    <td>{{$item->vehicle->member->name}}</td>
+                                    <td>{{$item->hourlyrate->membership->name_member}}</td>
+                                    <td>{{$item->hourlyrate->vehicletype->name_type}}</td>
+                                    <td>{{$item->hourlyrate->value}}</td>
+                                    <td>{{$item->date_in}}</td>
+                                    <td>{{$item->date_out}}</td>
+                                    <td>{{$item->amount_to_pay}}</td>
+                                    <td>{{$item->Employee->name}}</td>
+                                    <td></td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>

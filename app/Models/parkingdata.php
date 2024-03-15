@@ -25,4 +25,7 @@ class parkingdata extends Model
     public function hourlyrate(){
         return $this->belongsTo(hourlyrate::class);
     }
+    public function employee(){
+        return $this->belongsTo(User::class);
+    }
 }

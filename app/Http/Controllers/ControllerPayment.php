@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 use App\Models\parkingdata;
-
+use App\Models\vehicle;
 
 class ControllerPayment extends Controller
 {
@@ -40,7 +40,7 @@ class ControllerPayment extends Controller
     {
     
         $request->validate([
-            'license_plate' => 'required',
+            'license_plate' => 'required|unique:vehicles',
             'vehicle_id' => 'required',
             'employee_id' =>'required',
             'date_in' => 'required',
@@ -67,6 +67,7 @@ class ControllerPayment extends Controller
             where('vehicles.license_plate','LIKE',"$id%")->
             limit(10)->
             get();
+
             return $payments;
     }
 

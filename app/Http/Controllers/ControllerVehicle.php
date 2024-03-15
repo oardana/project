@@ -53,7 +53,7 @@ class ControllerVehicle extends Controller
             'notes'=> 'required',
             'member_id' => 'required',
             'vehicletype_id' => 'required',
-            'license_plate' => 'required'
+            'license_plate' => 'required|unique:vehicles'
         ]);
         vehicle::create($request->all());
         return redirect('/vehicle');

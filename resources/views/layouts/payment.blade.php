@@ -13,12 +13,13 @@
                                 <div class="form-group">
                                     <label for="license_plate">License Plate</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="license_plate" id="license_plate" class="form-control" >
+                                        <input type="text" name="license_plate" id="license_plate" class="form-control @error('license_plate') is-invalid @enderror" >
                                         <div class="input-group-append">
                                             <input type="reset" id="resetAll" value="X" class="form-control" >
                                         </div>
                                       </div>
                                 </div>
+                                @error('license_plate') {{$message}} @enderror
                                 <div class="form-group">
                                     <label for="vehicle_type">Vehicle Type</label>
                                     <input type="text" id="vehicle_type" class="form-control" required>

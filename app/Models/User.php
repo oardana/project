@@ -46,4 +46,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function parkingdata(){
+        return $this->hasMany(parkingdata::class);
+    }
 }

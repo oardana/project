@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class IsMember
+class IsAdmin
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class IsMember
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::guest()){
-           abort(403);
+        if(Auth::guest() || auth()->user()->name !== "patra"){
+            abort(403);
         }
         return $next($request);
     }

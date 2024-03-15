@@ -4228,6 +4228,14 @@ section {
     margin: 0;
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
 .table-responsive.table--no-card {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -4238,7 +4246,7 @@ section {
 }
 
 .table-earning thead th {
-    background: #333;
+    background: #0080FF;
     font-size: 16px;
     color: #fff;
     vertical-align: middle;

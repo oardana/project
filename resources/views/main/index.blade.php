@@ -30,7 +30,7 @@
 
 
     <!-- Main CSS-->
-    <link rel="stylesheet" href="{{asset('css/them.css')}}">
+    <link rel="stylesheet" href="{{asset('css/theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.structure.css')}}">
@@ -61,31 +61,32 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="{{Request::is('member') ? 'active':''}}" >
+                        <li  class="{{Request::is('member') ? 'active' :''}}" >
                             <a href="/member">
                                 <i class="fas fa-group"></i>Master Member</a>
                         </li>
-                        <li class="{{Request::is('vehicle') ? 'active':''}}">
+                        <li class="{{Request::is('vehicle') ? 'active' :''}}">
                             <a href="/vehicle">
                                 <i class="fas fa-sort-amount-asc"></i>Master Vehicle</a>
                         </li>
                         <li class="{{Request::is('payment') ? 'active':''}}">
-                            <a href="/payment">
+                            <a href="/payment" >
                                 <i class="fas fa-dollar"></i>Master Payment</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':'' }}">
+                        @can('admin')
+                        <li class="{{Request::is('membership')? 'active':''}}">
                             <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':'' }}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        <li class="{{Request::is('vehicletype')? 'active':''}}">
+                            <a href="/vehicletype"><i class="fa fa-tasks"></i>Master VehicleType</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':'' }}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
+                        <li class="{{Request::is('hourlyrate')? 'active':''}}">
+                            <a href="/hourlyrate"><i class="fas fa-tachometer-alt"></i>Master Hourlyrate</a>
                         </li>
-                        <li class="{{Request::is('membership')? 'active':'' }}">
-                            <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
-                        </li>
-
+                        <li class="{{Request::is('parkingdata')? 'active':''}}">
+                            <a href="/parkingdata"><i class="fa fa-signal"></i>Master ParkingData</a>
+                        </li>   
+                        @endcan
                     </ul>
                 </div>
             </nav>
@@ -115,18 +116,20 @@
                             <a href="/payment" >
                                 <i class="fas fa-dollar"></i>Master Payment</a>
                         </li>
+                        @can('admin')
                         <li class="{{Request::is('membership')? 'active':''}}">
                             <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
                         </li>
                         <li class="{{Request::is('vehicletype')? 'active':''}}">
-                            <a href="/vehicletype"><i class="fa fa-user"></i>Master VehicleType</a>
+                            <a href="/vehicletype"><i class="fa fa-tasks"></i>Master VehicleType</a>
                         </li>
                         <li class="{{Request::is('hourlyrate')? 'active':''}}">
-                            <a href="/hourlyrate"><i class="fa fa-user"></i>Master Hourlyrate</a>
+                            <a href="/hourlyrate"><i class="fas fa-tachometer-alt"></i>Master Hourlyrate</a>
                         </li>
                         <li class="{{Request::is('parkingdata')? 'active':''}}">
-                            <a href="/parkingdata"><i class="fa fa-user"></i>Master ParkingData</a>
+                            <a href="/parkingdata"><i class="fa fa-signal"></i>Master ParkingData</a>
                         </li>
+                        @endcan
                     </ul>
                 </nav>
             </div>
@@ -218,7 +221,7 @@
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <!-- Main JS-->
-    <script src="{{asset('js/man.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 
 </body>
 

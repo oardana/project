@@ -11,9 +11,9 @@
                         <div class="card-body card-block">
                             <div class="form-group">
                                 <label for="license_plate" class=" form-control-label">License Plate</label>
-                                <input type="text" name="license_plate" id="license_plate" placeholder="Enter License Plate" class="form-control" required value="{{old('license_plate')}}">
+                                <input type="text" name="license_plate" id="license_plate" placeholder="Enter License Plate" class="form-control @error('license_plate') is-invalid @enderror" required value="{{old('license_plate')}}">
                             </div>
-                            
+                            @error('license_plate') {{$message}} @enderror
                             <div class="form-group">
                                 <label for="member_id" class=" form-control-label">Owner</label>
                                 <select name="member_id" id="select"  class="form-control" >
