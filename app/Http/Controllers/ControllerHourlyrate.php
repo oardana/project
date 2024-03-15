@@ -12,10 +12,10 @@ class ControllerHourlyrate extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $hourlyrate = Hourlyrate::all();
+        $search = $request->search;
+        $hourlyrate = Hourlyrate::whereRelation('membership','name_member','LIKE',"%$search%")->paginate(4);
         return view('layouts.hourlyrate',compact('hourlyrate'));
     }
 

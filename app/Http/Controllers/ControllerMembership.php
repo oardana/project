@@ -12,10 +12,11 @@ class ControllerMembership extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-       $membership = membership::all();
+        $search = $request->search;
+       $membership = membership::where('name_member','LIKE',"%$search%")->paginate(5);
        return view('layouts.membership',compact('membership'));
     }
 
@@ -78,11 +79,11 @@ class ControllerMembership extends Controller
     {
         //
         $parent = membership::findOrFail($id);
-        if($parent->hourlyrate->isEmpty()){
+        if($parent->hourlyrate->isEmpty()&& $parent->member->isEmpty()){
             $parent->delete();
             return back()->with('success','Deleted Successfully');
         }else{
-            return back()->with('error','Data failed Constraint with Hourlyrate');
+            return back()->with('error','Data failed Constraint with Hourlyrate And Member');
         }
         return redirect('/membership');
     }

@@ -10,9 +10,11 @@ class ControllerParkingdata extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $parkingdata = parkingdata::all();
+        $search = $request->search;
+
+        $parkingdata = parkingdata::where('license_plate','LIKE',"%$search%")->paginate(10);
         return view('layouts.parkingdata',compact('parkingdata'));
     }
 
@@ -62,5 +64,7 @@ class ControllerParkingdata extends Controller
     public function destroy(string $id)
     {
         //
+        parkingdata::where('id',$id)->delete();
+        return back();
     }
 }

@@ -74,6 +74,7 @@
                                 <i class="fas fa-dollar"></i>Master Payment</a>
                         </li>
                         @can('admin')
+                        <li>Administrator</li>
                         <li class="{{Request::is('membership')? 'active':''}}">
                             <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
                         </li>
@@ -117,6 +118,7 @@
                                 <i class="fas fa-dollar"></i>Master Payment</a>
                         </li>
                         @can('admin')
+                        <li class="mr-4 ">Administrator</li>
                         <li class="{{Request::is('membership')? 'active':''}}">
                             <a href="/membership"><i class="fa fa-user"></i>Master Membership</a>
                         </li>

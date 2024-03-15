@@ -22,4 +22,7 @@ class member extends Model
     public function membership(){
         return $this->belongsTo(membership::class);
     }
+    public function vehicle(){
+        return $this->hasMany(vehicle::class);
+    }
 }

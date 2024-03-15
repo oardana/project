@@ -9,6 +9,24 @@
                 <i class="zmdi zmdi-plus"></i>add item</button>
             </a>
 
+            @if(session()->has('success'))
+            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show mt-4">
+               {{session('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+
+            @if(session()->has('error'))
+            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show mt-4">
+                {{session('error')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+
             @if ($members->isEmpty())
                 <h1 class="text-center mt-5">Data Not Found....</h1>
             @else
@@ -35,9 +53,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->membership->name_member}}</td>
-                                    <td>
-                                    <span class="block-email">{{$item->email}}</span>
-                                    </td>
+                                    <td>{{$item->email}}</td>
                                     <td>{{$item->phone_number}}</td>
                                     <td>{{$item->address}}</td>
                                     <td>{{$item->date_of_birth}}</td>

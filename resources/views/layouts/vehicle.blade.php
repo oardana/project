@@ -23,7 +23,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            @endif()
+            @endif
 
             @if ($vehicles->isEmpty())
                 <h1 class="text-center mt-5">Data Not Found....</h1>
@@ -41,7 +41,7 @@
                                         <th>Owner</th>
                                         <th>Vehicle Type</th>
                                         <th>Note</th>
-                                        <th>Date IN</th>
+                                        <th>created_at</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -50,13 +50,13 @@
                                     <tr class="tr-shadow">
                                         <td>{{$loop->iteration}}</td>
                                         <td>{{$item->license_plate}}</td>
-                                        <td>{{$item->name}}</td>
-                                        <td>{{$item->name_type}}</td>
+                                        <td>{{$item->member->name}}</td>
+                                        <td>{{$item->vehicletype->name_type}}</td>
                                         <td>{{$item->notes}}</td>
                                         <td>{{$item->created_at}}</td>
                                         <td>
                                             <div class="table-data-feature">
-                                                <a href="/vehicle/{{$item->id}}" >
+                                                <a href="/vehicle/{{$item->id}}/edit" >
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="zmdi zmdi-edit"></i>
                                                     </button>

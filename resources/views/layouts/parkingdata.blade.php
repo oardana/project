@@ -34,7 +34,17 @@
                                     <td>{{$item->date_out}}</td>
                                     <td>{{$item->amount_to_pay}}</td>
                                     <td>{{$item->Employee->name}}</td>
-                                    <td></td>
+                                    <td>
+                                        <div class="table-data-feature"> 
+                                                <form action="/parkingdata/{{$item->id}}" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                        <i class="zmdi zmdi-delete"></i>
+                                                    </button>
+                                                </form>
+                                        </div>
+                                    </td>
                                 @endforeach
                             </tr>
                         </tbody>

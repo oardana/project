@@ -2,34 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Carbon;
-use App\Models\vehicle;
+use App\Models\member;
+use App\Models\Vehicletype;
 
 class ControllerVehicle extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $search)
+    public function index(Request $request)
     {
-        //
-        $keyword = $search->search;
-
-        $vehicles = DB::table('vehicles')
-        ->join('members','vehicles.member_id','=','members.id')
-        ->join('vehicletypes','vehicles.vehicletype_id','=','vehicletypes.id')
-        ->select('vehicles.id','vehicles.license_plate','members.name','vehicletypes.name_type','vehicles.notes','vehicles.created_at')
-        ->where('members.name','LIKE',"%$keyword%")
-        ->get();
+        $keyword = $request->search;
+        $vehicles = vehicle::whereRelation('member','name','LIKE',"%$keyword%")->paginate(4);
         return view('layouts.vehicle',compact('vehicles'));
-        // dd($vehicles);
     }
 
     /**
@@ -37,9 +24,8 @@ class ControllerVehicle extends Controller
      */
     public function create()
     {
-        //
-        $nameMember = DB::table('members')->get();
-        $vehicleType = DB::table('vehicletypes')->get();
+        $nameMember = member::all();
+        $vehicleType = Vehicletype::all();
        return view('layouts.vehicleadd',compact('nameMember','vehicleType'));
     }
 
@@ -48,7 +34,6 @@ class ControllerVehicle extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'notes'=> 'required',
             'member_id' => 'required',
@@ -60,21 +45,15 @@ class ControllerVehicle extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for editing the specified resource.
      */
-    public function show(string $id)
+    public function edit(Vehicle $vehicle)
     {
-        //
-        //
-        $vehicles = DB::table('vehicles')
-        ->join('members','vehicles.member_id','=','members.id')
-        ->join('vehicletypes','vehicles.vehicletype_id','=','vehicletypes.id')
-        ->select('vehicles.id','vehicles.license_plate','members.name','vehicles.member_id','vehicles.vehicletype_id','vehicletypes.name_type','vehicles.notes')->where('vehicles.id','=',$id)->get();
-        $nameMember = DB::table('members')->get();
-        $vehicleType = DB::table('vehicletypes')->get();
-       return view('layouts.vehicleedit',compact('nameMember','vehicleType','vehicles'));
-    // dd($vehicles);
         
+        $nameMember = member::all();
+        $vehicleType = Vehicletype::all();
+        return view('layouts.vehicleedit',compact('nameMember','vehicleType','vehicle'));
+
     }
 
     /**
@@ -83,7 +62,6 @@ class ControllerVehicle extends Controller
     public function update(Request $request, string $id)
     {
         //
-
         vehicle::where('id',$id)->update([
             'license_plate' => $request->license_plate,
             'member_id' =>$request->member_id,
@@ -98,9 +76,7 @@ class ControllerVehicle extends Controller
      */
     public function destroy(string $id)
     {
-        // DB::table('vehicles')->where('id',$id)->delete();
-        // return redirect('/vehicle');
-
+        //
         $parent = vehicle::findOrFail($id);
 
         if($parent->parkingdata->IsEmpty()){

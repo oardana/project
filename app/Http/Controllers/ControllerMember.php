@@ -30,7 +30,7 @@ class ControllerMember extends Controller
     public function create()
     {
         // 
-        $memberships = DB::table('memberships')->get();
+        $memberships = membership::all();
         return view('layouts.memberadd',compact('memberships'));
     }
 
@@ -39,7 +39,6 @@ class ControllerMember extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -47,7 +46,6 @@ class ControllerMember extends Controller
             'phone_number' => 'required|min:12',
             'date_of_birth' => 'required',
             'gender' => 'required'
-
         ]);
         member::create($request->all());
           return  redirect('/member');
@@ -97,7 +95,13 @@ class ControllerMember extends Controller
     public function destroy(string $id)
     {
         //
-        $members = member::where('id',$id)->delete();
-        return redirect('/member');
+        $parent = member::findOrFail($id);
+
+        if($parent->vehicle->IsEmpty()){
+            $parent->delete();
+            return redirect()->back()->with('success','Success Delete Data Member');
+        }else{
+            return redirect()->back()->with('error','Data Failed Because constraint Page Vehicle');
+        }
     }
 }
