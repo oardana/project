@@ -65,6 +65,6 @@ class ControllerParkingdata extends Controller
     {
         //
         parkingdata::where('id',$id)->delete();
-        return back();
+        return back()->with('success','Data Success deleted');
     }
 }

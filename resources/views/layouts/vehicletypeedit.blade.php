@@ -2,7 +2,7 @@
 @section('content')
 <div class="section__content section__content--p30">
     <div class="container-fluid">
-        <h1 class="text-center mb-5">Add vehicletype</h1>
+        <h1 class="text-center mb-5">Edit vehicletype</h1>
        <div class="col-lg-7 m-auto">
             <form action="/vehicletype/{{$vehicletype->id}}" method="post">
                 @method('PATCH')

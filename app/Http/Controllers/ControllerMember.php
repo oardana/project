@@ -42,10 +42,11 @@ class ControllerMember extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'membership_id' => ['membership_id' => 'required'],
             'address'=> 'required',
             'phone_number' => 'required|min:12',
             'date_of_birth' => 'required',
-            'gender' => 'required'
+            'gender' => 'required',
         ]);
         member::create($request->all());
           return  redirect('/member');

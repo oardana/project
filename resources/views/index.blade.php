@@ -31,7 +31,7 @@
         <link href="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
     
         <!-- Main CSS-->
-        <link href="{{asset('css/them.css')}}" rel="stylesheet" media="all">
+        <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
 
 </head>
 

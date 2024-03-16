@@ -28,7 +28,7 @@
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="{{asset('css/them.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
 
 </head>
 
@@ -121,7 +121,7 @@
       </script>
   
       <!-- Main JS-->
-      <script src="{{asset('js/main.js')}}"></script>
+      <script src="{{asset('js/script.js')}}"></script>
 
 </body>
 

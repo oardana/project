@@ -2,7 +2,16 @@
 @section('content')
     <div class="section__content section__content--p30">
         <div class="container">
-            <h1 class="text-center"> Parking data</h1>
+            <h1 class="text-center"> Parking Data</h1>
+
+            @if(Session::has('success'))
+            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show mt-4">
+                {{session('success')}}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+            @endif
             <div class="col-lg-12">
                 <div class="table-responsive table--no-card m-b-30">
                     <table class="table table-borderless table-striped table-earning">
@@ -39,7 +48,7 @@
                                                 <form action="/parkingdata/{{$item->id}}" method="POST">
                                                     @method('delete')
                                                     @csrf
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button class="item" name="delete" id="delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </button>
                                                 </form>

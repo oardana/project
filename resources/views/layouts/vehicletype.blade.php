@@ -57,7 +57,7 @@
                                                 <form action="/vehicletype/{{$item->id}}" method="POST">
                                                     @method('delete')
                                                     @csrf
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button class="item" name="delete" title="Delete" id="delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                     </button>
                                                 </form>

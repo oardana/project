@@ -2,7 +2,7 @@
 @section('content')
 <div class="section__content section__content--p30 ">
         <div class="container-fluid "> 
-            <h1 class="text-center mb-5"> Page Vehicle</h1>
+            <h1 class="text-center mb-5"> Vehicle</h1>
             <a href="/vehicle/create">
                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                 <i class="zmdi zmdi-plus"></i>add item</button>
@@ -65,7 +65,7 @@
                                                     @method('delete')
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{$item->id}}">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                    <button class="item"name="delete" id="delete">
                                                         <i class="zmdi zmdi-delete"></i>
                                                         </button>
                                                 </form>

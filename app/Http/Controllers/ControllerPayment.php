@@ -40,7 +40,7 @@ class ControllerPayment extends Controller
     {
     
         $request->validate([
-            'license_plate' => 'required|unique:vehicles',
+            'license_plate' => 'required|unique:parkingdatas',
             'vehicle_id' => 'required',
             'employee_id' =>'required',
             'date_in' => 'required',
@@ -48,7 +48,7 @@ class ControllerPayment extends Controller
             'amount_to_pay'=> 'required'
         ]);
         parkingdata::create($request->all());
-        return redirect('/payment');
+        return redirect('/payment')->with('success','Data send Successfully');
        
     }
 

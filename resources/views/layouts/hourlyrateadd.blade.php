@@ -14,8 +14,8 @@
                         <div class="form-group">
                             <label for="membership_id"> Name Member</label>
                             <select name="membership_id" id="membership_id" class="form-control">
+                                <option value=""></option>
                                 @foreach ($membership as $item)
-                                   
                                     <option value="{{$item->id}}">{{$item->name_member}}</option>
                                 @endforeach
                             </select>
@@ -23,6 +23,7 @@
                         <div class="form-group">
                             <label for="vehicletype_id">Vehicle Type</label>
                             <select name="vehicletype_id" id="vehicletype_id" class="form-control">
+                                <option value=""></option>
                                 @foreach ($vehicletype as $item)
                                     <option value="{{$item->id}}">{{$item->name_type}}</option>
                                 @endforeach

@@ -16,4 +16,8 @@ class Vehicletype extends Model
     public function vehicle(){
         return $this->hasMany(vehicle::class);
     }
+
+    public function Hourlyrate(){
+        return $this->hasMany(Hourlyrate::class);
+    }
 }

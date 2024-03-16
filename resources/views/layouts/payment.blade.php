@@ -2,7 +2,16 @@
 @section('content')
     <div class="section__content section__content--p30">
         <div class="container-fluid"> 
-            <h1 class="text-center">Page Payment</h1>
+            <h1 class="text-center">Payment</h1>
+
+            @if(Session::has('success'))
+            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show mt-4">
+                {{session('success')}}
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+            @endif
            <div class="row mt-4">
                 <div class="col-md-6">
                     <div class="card">

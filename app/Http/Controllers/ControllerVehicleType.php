@@ -61,14 +61,14 @@ class ControllerVehicleType extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $vehicletype)
+    public function update(Request $request, string $id)
     {
         //
         Vehicletype::where('id',$id)
         ->update([
             'name_type' =>$request->name_type
         ]);
-        return back();
+        return redirect('/vehicletype');
     }
 
     /**
@@ -76,16 +76,12 @@ class ControllerVehicleType extends Controller
      */
     public function destroy(String $id)
     {
-        //
-        // Vehicletype::where('id',$vehicletype)->delete();
-        // return back();
-
         $parent = Vehicletype::findOrFail($id);
-        if($parent->vehicle->isEmpty()){
+        if($parent->vehicle->isEmpty() && $parent->Hourlyrate->isEmpty()){
             $parent->delete();
             return back()->with('success','deleted Succesfully');
         }else{
-            return back()->with('error','Data Failed Because constraint Page Vehicle');
+            return back()->with('error','Data Failed Because constraint Page Vehicle Or Page Hourlyrate');
         }
     }
 }

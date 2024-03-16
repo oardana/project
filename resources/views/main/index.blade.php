@@ -201,6 +201,7 @@
     </div>
 
     <!-- Jquery JS-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
     <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
@@ -223,7 +224,7 @@
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <!-- Main JS-->
-    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
 
 </body>
 
