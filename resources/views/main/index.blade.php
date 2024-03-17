@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-    <!-- Title Page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
 
+    
     <!-- Fontfaces CSS-->
     <link href="{{asset('css/font-face.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+
 
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -37,9 +35,7 @@
     <link rel="stylesheet" href="{{asset('css/jquery-ui.structure.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.theme.min.css')}}">
-
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
@@ -199,34 +195,29 @@
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
-
-    <!-- Jquery JS-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
-    <!-- Bootstrap JS-->
-    <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-    <!-- Vendor JS       -->
-    <script src="{{asset('vendor/slick/slick.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
-    <script src="{{asset('vendor/animsition/animsition.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('vendor/counter-up/jquery.counterup.min.js')}}">
-    </script>
-    <script src="{{asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
-    <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
-    <script src="{{asset('vendor/select2/select2.min.js')}}">
-    </script>
-    <script src="{{asset('js/jquery-ui.js')}}"></script>
-    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
-    <!-- Main JS-->
-    <script src="{{asset('js/script.js')}}"></script>
-
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
+<!-- Bootstrap JS-->
+<script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
+<script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+<!-- Vendor JS       -->
+<script src="{{asset('vendor/slick/slick.min.js')}}">
+</script>
+<script src="{{asset('vendor/wow/wow.min.js')}}"></script>
+<script src="{{asset('vendor/animsition/animsition.min.js')}}"></script>
+<script src="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
+</script>
+<script src="{{asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
+<script src="{{asset('vendor/counter-up/jquery.counterup.min.js')}}">
+</script>
+<script src="{{asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
+<script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+<script src="{{asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
+<script src="{{asset('vendor/select2/select2.min.js')}}">
+</script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/jquery-ui.min.js')}}"></script>
+<!-- Main JS-->
+<script src="{{asset('js/script.js')}}"></script>
 </html>
-<!-- end document-->

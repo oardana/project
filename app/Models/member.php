@@ -9,6 +9,7 @@ class member extends Model
 {
     use HasFactory;
 
+    protected $guard = [];
     protected $fillable = [
         'name',
         'membership_id',
