@@ -42,11 +42,11 @@
                             <h1>Registration Form</h1>
                         </div>
                         <div class="login-form">
-                            <form action="/registration" method="POST">
+                            <form action="/registration" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="au-input au-input--full @error('name') is-invalid @enderror" type="text" name="name"  value="{{old('name')}}">
+                                    <input class="au-input au-input--full @error('name') is-invalid @enderror" type="text" name="name"  value="{{old('name')}}" autofocus>
                                 </div>
                                 @error('name') {{$message}} @enderror
                                 <div class="form-group">
@@ -83,6 +83,11 @@
                                             <input type="radio" name="gender" id="gender2" value="female" class="form-check-input"> female
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Upload Your Image</label>
+                                    <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+                                    @error('image') {{$message}} @enderror
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
                             </form>

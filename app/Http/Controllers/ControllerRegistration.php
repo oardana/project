@@ -18,17 +18,23 @@ class ControllerRegistration extends Controller
     }
     
     public function store(Request $request){
-        $request->validate([
+
+       $validate = $request->validate([
             "name" =>'required',
             'email' => 'required|email:dns|unique:users',
             'password'=> 'required|min:8',
             'phone_number' =>'required|min:12|numeric',
             'address' => 'required',
             'date_of_birth' => 'required',
-            'gender' => 'required'
+            'gender' => 'required',
+            'image' => 'image|file|max:1024'
         ]);
 
-        User::create($request->all());
+        if($request->file('image')){
+            $validate['image'] = $request->file('image')->store('post-image');
+        }
+        
+        User::create($validate);
         return redirect('/login');
     }
 }
