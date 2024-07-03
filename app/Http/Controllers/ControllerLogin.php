@@ -21,7 +21,7 @@ class ControllerLogin extends Controller
     public function authenticate(Request $request){
         $result = $request->validate([
             'name' => 'required',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
         ]); 
 
         if(Auth::attempt($result)){

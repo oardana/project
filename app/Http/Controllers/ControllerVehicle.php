@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\vehicle;
 use Illuminate\Http\Request;
 use App\Models\member;
-use App\Models\Vehicletype;
+use App\Models\vehicletype;
 
 class ControllerVehicle extends Controller
 {
@@ -25,7 +25,7 @@ class ControllerVehicle extends Controller
     public function create()
     {
         $nameMember = member::all();
-        $vehicleType = Vehicletype::all();
+        $vehicleType = vehicletype::all();
        return view('layouts.vehicleadd',compact('nameMember','vehicleType'));
     }
 
@@ -51,7 +51,7 @@ class ControllerVehicle extends Controller
     {
         
         $nameMember = member::all();
-        $vehicleType = Vehicletype::all();
+        $vehicleType = vehicletype::all();
         return view('layouts.vehicleedit',compact('nameMember','vehicleType','vehicle'));
 
     }

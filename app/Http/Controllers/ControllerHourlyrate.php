@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hourlyrate;
 use App\Models\membership;
-use App\Models\Vehicletype;
+use App\Models\vehicletype;
 use Illuminate\Http\Request;
 
 class ControllerHourlyrate extends Controller
@@ -26,7 +26,7 @@ class ControllerHourlyrate extends Controller
     {
         //
         $membership = membership::all();
-        $vehicletype = Vehicletype::all();
+        $vehicletype = vehicletype::all();
         return view('layouts.hourlyrateadd',compact('membership','vehicletype'));
 
     }
@@ -61,7 +61,7 @@ class ControllerHourlyrate extends Controller
     {
         //
         $membership = membership::all();
-        $vehicletype = Vehicletype::all();
+        $vehicletype = vehicletype::all();
         return view('layouts.hourlyrateedit',compact('hourlyrate','membership','vehicletype'));
     }
 

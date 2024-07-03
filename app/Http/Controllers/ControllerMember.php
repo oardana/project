@@ -55,7 +55,7 @@ class ControllerMember extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(member $member)
+    public function edit(member $member)
     {
         //
         $memberships = membership::all();
@@ -95,7 +95,7 @@ class ControllerMember extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
         $parent = member::findOrFail($id);
 
         if($parent->vehicle->IsEmpty()){

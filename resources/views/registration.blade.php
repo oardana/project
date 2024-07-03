@@ -8,127 +8,71 @@
 
     <!-- Title Page-->
     <title>Registration</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="{{asset('css/theme.css')}}" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.css" integrity="sha512-lCk0aEL6CvAGQvaZ47hoq1v/hNsunE8wD4xmmBelkJjg51DauW6uVdaWEJlwgAE6PxcY7/SThs1T4+IMwwpN7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="animsition">
-    <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <h1>Registration Form</h1>
-                        </div>
-                        <div class="login-form">
-                            <form action="/registration" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input class="au-input au-input--full @error('name') is-invalid @enderror" type="text" name="name"  value="{{old('name')}}" autofocus>
-                                </div>
-                                @error('name') {{$message}} @enderror
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input class="au-input au-input--full @error('email') is-invalid @enderror" type="email" name="email"  value="{{old('email')}}">
-                                </div>
-                                @error('email') {{$message}} @enderror
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full @error('password') is-invalid @enderror" type="password" name="password" value="{{old('password')}}">
-                                </div>
-                                @error('password') {{$message}} @enderror
-                                <div class="form-group">
-                                    <label>Phone Number</label>
-                                    <input class="au-input au-input--full @error('phone_number') is-invalid @enderror" type="Text" name="phone_number" value="{{old('phone_number')}}">
-                                </div>
-                                @error('phone_number') {{$message}} @enderror
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <textarea class="au-input au-input--full @error('address') is-invalid @enderror" type="textarea" name="address" value="{{old('address')}}"></textarea>
-                                </div>
-                                @error('address') {{$message}} @enderror
-                                <div class="form-group">
-                                    <label>Date Of birth</label>
-                                    <input class="au-input au-input--full" type="date" name="date_of_birth" placeholder="Date Of Birth">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender"> Gender</label>
-                                    <div class="col col-md-9">
-                                        <div class="form-check">
-                                            <input type="radio" name="gender" id="gender1" value="male" class="form-check-input"> Male
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="radio" name="gender" id="gender2" value="female" class="form-check-input"> female
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="image">Upload Your Image</label>
-                                    <input type="file" name="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
-                                    @error('image') {{$message}} @enderror
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                            </form>
-                            <div class="register-link">
-                                <p>
-                                    Don't you have account?
-                                    <a href="/registration">Sign Up Here</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+<body>
+  <div class="loader fixed left-0 top-0 w-full h-full z-50 bg-gray-400"> 
+    <div class="fixed top-1/2 left-1/2 ">
+      <span class="material-symbols-outlined animate-spin ">autorenew</span>
     </div>
-      <!-- Jquery JS-->
-      <script src="{{asset('vendor/jquery-3.2.1.min.js')}}"></script>
-      <!-- Bootstrap JS-->
-      <script src="{{asset('vendor/bootstrap-4.1/popper.min.js')}}"></script>
-      <script src="{{asset('vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
-      <!-- Vendor JS       -->
-      <script src="{{asset('vendor/slick/slick.min.js')}}">
-      </script>
-      <script src="{{asset('vendor/wow/wow.min.js')}}"></script>
-      <script src="{{asset('vendor/animsition/animsition.min.js')}}"></script>
-      <script src="{{asset('vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')}}">
-      </script>
-      <script src="{{asset('vendor/counter-up/jquery.waypoints.min.js')}}"></script>
-      <script src="{{asset('vendor/counter-up/jquery.counterup.min.js')}}">
-      </script>
-      <script src="{{asset('vendor/circle-progress/circle-progress.min.js')}}"></script>
-      <script src="{{asset('vendor/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-      <script src="{{asset('vendor/chartjs/Chart.bundle.min.js')}}"></script>
-      <script src="{{asset('vendor/select2/select2.min.js')}}">
-      </script>
-  
-      <!-- Main JS-->
-      <script src="{{asset('js/script.js')}}"></script>
+  </div>
 
+    <div class="bg-gradient-to-r from-blue-800 to-cyan-400 mt-[6%] py-[3%] mx-8 mb-[6%] lg:mx-[220px] shadow-2xl rounded-xl" >
+        <div class="grid grid-rows-1 lg:grid-flow-col gap-2">
+          <div>
+            <h3 class="text-center text-white text-2xl mt-44 font-bold">Welcome</h3>
+            <h2 class="text-center lg:mt-[75%] lg:mb-[6%] mb-[6%] mt-[50%] font-light text-white">Do you have an account?</h2>
+            <h1 class="text-center mb-5"><a href="/login" class="w-50 px-14 py-2.5 bg-white rounded-full font-bold">Login</a></h1>
+          </div>
+          <div class="bg-white lg:p-20 rounded-l-[10%_50%]">
+            <h1 class="lg:mt-[-4%] lg:mb-[6%] text-center lg:text-3xl py-6"> Apply as a Employee</h1>
+            <form action="/registration" method="post" enctype="multipart/form-data">
+              @csrf
+              <div class="grid lg:grid-cols-2 gap-2 ">
+                <div class="mx-7 lg:mr-4 pl-30px">
+                  <div>
+                    <input type="text" placeholder="Name *" name="name" value="{{old('name')}}" class="bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  </div>
+                  <div class="">
+                    <input type="email" placeholder="Email *" name="email" value="{{old('email')}}" class=" bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  </div>
+                  <div>
+                    <input type="password" placeholder="Password *" name="password" value="{{old('password')}}" class=" bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  </div>
+                  <div>
+                    <input type="text" placeholder="Phone Number *" name="phone_number" value="{{old('phone_number')}}" class=" bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  </div>
+                </div>
+                <div class="mx-7 lg:mr-4">
+                  <textarea placeholder="Address" name="address" class="bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                  <input type="date" name="date_of_birth" placeholder="6" value="{{old('name')}}" class=" bg-gray-50 mb-4  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <label class="radio inline"> 
+                    <input type="radio" name="gender" id="gender2" value="male">
+                    <span> Male </span> 
+                </label>
+                <label class="radio inline"> 
+                    <input type="radio" name="gender" id="gender2" value="female">
+                    <span>Female </span> 
+                </label>
+                  <input type="file" name="image" id="image" class="mt-4 block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"/>
+                  <button class="w-60 text-white float-right mt-[10%] mb-10 lg:mb-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " id="submit"> Submit</button>       
+                </div>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+    </div>
 </body>
-
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(window).on('load', function(){
+    $('.loader').fadeOut(2000);
+  });
+</script>
 </html>
 <!-- end document-->

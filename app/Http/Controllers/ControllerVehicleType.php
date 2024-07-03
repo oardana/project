@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicletype;
+use App\Models\vehicletype;
 use App\Models\membership;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class ControllerVehicleType extends Controller
     public function index()
     {
         //
-        $vehicletypes = Vehicletype::all();
+        $vehicletypes = vehicletype::all();
         return view('layouts.vehicletype',compact('vehicletypes'));
     }
 
@@ -37,7 +37,7 @@ class ControllerVehicleType extends Controller
         $request->validate([
             'name_type' => 'required'
         ]);
-        Vehicletype::create($request->all());
+        vehicletype::create($request->all());
         return redirect('/vehicletype');
     }
 
@@ -52,7 +52,7 @@ class ControllerVehicleType extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vehicletype $vehicletype)
+    public function edit(vehicletype $vehicletype)
     {
         //
         return view('layouts.vehicletypeedit',compact('vehicletype'));
@@ -64,7 +64,7 @@ class ControllerVehicleType extends Controller
     public function update(Request $request, string $id)
     {
         //
-        Vehicletype::where('id',$id)
+        vehicletype::where('id',$id)
         ->update([
             'name_type' =>$request->name_type
         ]);
@@ -76,7 +76,7 @@ class ControllerVehicleType extends Controller
      */
     public function destroy(String $id)
     {
-        $parent = Vehicletype::findOrFail($id);
+        $parent = vehicletype::findOrFail($id);
         if($parent->vehicle->isEmpty() && $parent->Hourlyrate->isEmpty()){
             $parent->delete();
             return back()->with('success','deleted Succesfully');

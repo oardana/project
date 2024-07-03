@@ -1,79 +1,57 @@
 @extends('main.index')
 @section('content')
-    <div class="section__content section__content--p30">
-        <div class="container-fluid m-auto"> 
-            <h1 class="text-center mb-5">add Member</h1>
-            <div class="col-lg-7 m-auto">
-                <form action="/member" method="POST">
-                   @csrf
-                    @method('POST')
-                    <div class="card">
-                        <div class="card-body card-block">
-                            <div class="form-group">
-                                <label for="name" class=" form-control-label">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Enter your  name" class="form-control @error('name') is_invalid @enderror" autofocus   value="{{old('name')}}">
-                            </div>
-                            @error('name') {{$message}} @enderror
-                            <div class="form-group">
-                                <label for="membership_id" class=" form-control-label">Membership Type</label>
-                                    <select name="membership_id" id="select" class="form-control" >
-                                        <option value="">Select </option>
-                                        @foreach ($memberships as $item)
-                                            <option value="{{$item->id}}">{{$item->name_member}}</option>
-                                        @endforeach
-                                    </select>   
-                            </div>
-                            @error('membership_id') {{$message}} @enderror
-                            <div class="form-group">
-                                <label for="Email" class=" form-control-label">Email</label>
-                                <input type="text"  name="email"id="email" placeholder="Enter Email name" class="form-control @error('email') is_invalid @enderror"  value="{{old('email')}}">
-                            </div>
-                            @error('email') {{$message}} @enderror
-                            <div class="row form-group">
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label for="phone" class=" form-control-label">Phone Number</label>
-                                        <input type="text" name="phone_number" id="phone" placeholder="Enter your Phone" class="form-control @error('phone_number') is_invalid @enderror" value="{{old('phone_number')}}" >
-                                    </div>
-                                </div>
-                                @error('phone_number') {{$message}} @enderror
-                                <div class="col-8">
-                                    <div class="form-group">
-                                        <label for="address" class=" form-control-label">Address</label>
-                                        <input type="text" name="address" id="addres" placeholder="Address" class="form-control @error('address') is_invalid @enderror" value="{{old('address')}}">
-                                    </div>
-                                </div>
-                                @error('address') {{$message}} @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="date" class=" form-control-label">Date of Birth</label>
-                                <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Date of Birth" class="form-control @error('date') is_invalid @enderror" value="{{old('date_of_birth')}}">
-                                @error('date_of_birth') {{$message}} @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="gender"> Gender</label>
-                                 <div class="col col-md-9">
-                                    <div class="form-check">
-                                        <input type="radio" name="gender" id="gender1" value="male" class="form-check-input @error('gender') is_invalid @enderror" value="{{old('gender')}}"> Male
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="radio" name="gender" id="gender2" value="female" class="form-check-input @error('gender') is_invalid @enderror" value="{{old('gender')}}"> female
-                                    </div>
-                                </div>
-                                @error('gender') {{$message}} @enderror
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button  class="btn btn-primary btn-sm" type="submit">
-                                <i class="fa fa-dot-circle-o"></i> Submit
-                            </button>
-                            <button type="reset" class="btn btn-danger btn-sm">
-                                <i class="fa fa-ban"></i> Reset
-                            </button>
-                        </div>
+<div class="p-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-4 bg-gray-200 ">
+    <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 m-auto">
+        <form action="/member" method="POST" class="space-y-6">
+            @csrf
+             @method('POST')
+             <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your  name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+            </div>
+            <div>
+                <label for="membership_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Membership Type</label>
+                <select name="membership_id" id="select" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="">Select</option>
+                        @foreach ($memberships as $item)
+                            <option value="{{$item->id}}">{{$item->name_member}}</option>
+                        @endforeach
+                    </select>   
+            </div>
+            <div>
+                <label for="Email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                <input type="text"  name="email"id="email" placeholder="Enter Email name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+            </div>
+            <div>
+                <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                <input type="text" name="phone_number" id="phone" placeholder="Enter your Phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+            </div>
+            <div>
+                <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
+                <input type="text" name="address" id="addres" placeholder="Address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+            </div>
+            <div>
+                <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Date of Birth" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" >
+            </div>
+            <div>
+                <label for="gender"> Gender</label>
+                 <div class="col col-md-9">
+                    <div class="form-check">
+                        <input type="radio" name="gender" id="gender" value="male" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" > Male
                     </div>
-                </form>
-            </div> 
-        </div>
+                    <div class="form-check">
+                        <input type="radio" name="gender" id="gender" value="female" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" > female
+                    </div>
+                </div>
+            </div>
+            <button  class="w-50 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit">
+                Submit
+            </button>
+            <button type="reset" class="w-50 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                <i class="fa fa-ban"></i> Reset
+            </button>
+         </form>
     </div>                                  
+</div>
 @endsection
